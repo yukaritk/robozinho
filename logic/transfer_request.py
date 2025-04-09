@@ -1,17 +1,12 @@
 import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 import pandas as pd
 import os
 from utils.store_mapper import StoreMapper
 from logic.open_driver import OpenDriver
 from utils.helper_methods import HelperMethods
-from selenium.webdriver.common.keys import Keys
 import logging
-from logic.click_btnMenu import ClickBtnMenu
-from bs4 import BeautifulSoup
 from logic.release_listOrder import ReleaseAndListOrder
 import uuid
 
@@ -169,16 +164,16 @@ class TransferRequest:
                 raise Exception
             
     def processo_inclusao_pedidos(self):
-        grouped_dfs = self.df_by_group()
-        if grouped_dfs is None:
-            logging.info(f"Concluído: Sem Pedidos Novos\n\n")
-            self.hm.notificar("Concluido", "Sem Pedidos Novos")
-            return
-        
         open_driver = OpenDriver()
         self.driver = open_driver.open_driver("vendas")
         self.hm = HelperMethods(self.driver)
         self.rl = ReleaseAndListOrder(self.driver)
+        grouped_dfs = self.df_by_group()
+        if grouped_dfs is None:
+            logging.info(f"Concluído: Sem Pedidos Novos\n\n")
+            self.hm.notificar("Concluido", "Sem Pedidos Novos")
+            self.driver.close()
+            return
 
         for group_name, group_df in grouped_dfs:
             origem, destino, payment, operation = map(str, group_name)
@@ -222,4 +217,5 @@ class TransferRequest:
                 self.update_status_order(group_df, "-Listado", "Erro ao atualizar status durante o processo de listagem.")
                 logging.info(f"Finalizado com sucesso.\n\n")
         self.hm.notificar("Concluído", "Pedidos Finalizados")
+        self.driver.close()
     

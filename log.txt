@@ -290,3 +290,189 @@
 2025-04-08 00:23:59 - Concluído: Sem Pedidos Novos
 
 
+2025-04-08 11:46:57 - Concluído: Sem Pedidos Novos
+
+
+2025-04-08 11:48:38 - Concluído: Sem Pedidos Novos
+
+
+2025-04-09 00:16:17 - Manutencao de Preco
+2025-04-09 00:41:21 - Manutencao de Preco
+2025-04-09 00:47:28 - Manutencao de Preco
+2025-04-09 00:59:32 - Manutencao de Preco
+2025-04-09 00:59:33 - Data Inicio 09/04/2025
+2025-04-09 01:08:13 - Manutencao de Preco
+2025-04-09 01:08:14 - Data Inicio 09/04/2025
+2025-04-09 01:08:14 - Option com value=[CD] - MATRIZ não encontrada.
+2025-04-09 01:08:14 - Loja Nao Localizada: CD
+2025-04-09 01:13:22 - Manutencao de Preco
+2025-04-09 01:13:23 - Data Inicio 09/04/2025
+2025-04-09 01:13:23 - Loja Nao Localizada: CD
+2025-04-09 01:13:24 - Option com value=[40] - LOJA 40-BRAGANCA I não encontrada.
+2025-04-09 01:13:24 - Loja Nao Localizada: 40
+2025-04-09 01:13:24 - Option com value=[41] - LOJA 41-BRAGANCA II não encontrada.
+2025-04-09 01:13:24 - Loja Nao Localizada: 41
+2025-04-09 01:13:24 - Option com value=[63] - LOJA 63-RIB. SHOP não encontrada.
+2025-04-09 01:13:24 - Loja Nao Localizada: 63
+2025-04-09 01:13:25 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:25 - Loja Nao Localizada: 73
+2025-04-09 01:13:25 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:25 - Loja Nao Localizada: 74
+2025-04-09 01:13:25 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:25 - Loja Nao Localizada: 75
+2025-04-09 01:13:26 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:26 - Loja Nao Localizada: 76
+2025-04-09 01:13:26 - Option com value=[1] - LISTA 0 não encontrada.
+2025-04-09 01:13:26 - Loja Nao Localizada: 1
+2025-04-09 01:13:27 - Option com value=[2] - GRUPO 2 não encontrada.
+2025-04-09 01:13:27 - Loja Nao Localizada: 2
+2025-04-09 01:13:27 - Option com value=[3] - GRUPO 3 não encontrada.
+2025-04-09 01:13:27 - Loja Nao Localizada: 3
+2025-04-09 01:13:27 - Option com value=[4] - GRUPO 4 não encontrada.
+2025-04-09 01:13:27 - Loja Nao Localizada: 4
+2025-04-09 01:13:28 - Option com value=[5] - GRUPO 5 não encontrada.
+2025-04-09 01:13:28 - Loja Nao Localizada: 5
+2025-04-09 01:13:28 - Data Inicio 09/04/2025
+2025-04-09 01:13:28 - Loja Nao Localizada: CD
+2025-04-09 01:13:29 - Option com value=[40] - LOJA 40-BRAGANCA I não encontrada.
+2025-04-09 01:13:29 - Loja Nao Localizada: 40
+2025-04-09 01:13:29 - Option com value=[41] - LOJA 41-BRAGANCA II não encontrada.
+2025-04-09 01:13:29 - Loja Nao Localizada: 41
+2025-04-09 01:13:30 - Option com value=[63] - LOJA 63-RIB. SHOP não encontrada.
+2025-04-09 01:13:30 - Loja Nao Localizada: 63
+2025-04-09 01:13:30 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:30 - Loja Nao Localizada: 73
+2025-04-09 01:13:30 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:30 - Loja Nao Localizada: 74
+2025-04-09 01:13:31 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:31 - Loja Nao Localizada: 75
+2025-04-09 01:13:31 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:31 - Loja Nao Localizada: 76
+2025-04-09 01:13:32 - Option com value=[1] - LISTA 0 não encontrada.
+2025-04-09 01:13:32 - Loja Nao Localizada: 1
+2025-04-09 01:13:32 - Option com value=[2] - GRUPO 2 não encontrada.
+2025-04-09 01:13:32 - Loja Nao Localizada: 2
+2025-04-09 01:13:33 - Option com value=[3] - GRUPO 3 não encontrada.
+2025-04-09 01:13:33 - Loja Nao Localizada: 3
+2025-04-09 01:13:33 - Option com value=[4] - GRUPO 4 não encontrada.
+2025-04-09 01:13:33 - Loja Nao Localizada: 4
+2025-04-09 01:13:34 - Option com value=[5] - GRUPO 5 não encontrada.
+2025-04-09 01:13:34 - Loja Nao Localizada: 5
+2025-04-09 01:13:34 - Data Inicio 09/04/2025
+2025-04-09 01:13:34 - Loja Nao Localizada: CD
+2025-04-09 01:13:35 - Option com value=[40] - LOJA 40-BRAGANCA I não encontrada.
+2025-04-09 01:13:35 - Loja Nao Localizada: 40
+2025-04-09 01:13:35 - Option com value=[41] - LOJA 41-BRAGANCA II não encontrada.
+2025-04-09 01:13:35 - Loja Nao Localizada: 41
+2025-04-09 01:13:36 - Option com value=[63] - LOJA 63-RIB. SHOP não encontrada.
+2025-04-09 01:13:36 - Loja Nao Localizada: 63
+2025-04-09 01:13:36 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:36 - Loja Nao Localizada: 73
+2025-04-09 01:13:37 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:37 - Loja Nao Localizada: 74
+2025-04-09 01:13:37 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:37 - Loja Nao Localizada: 75
+2025-04-09 01:13:38 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:38 - Loja Nao Localizada: 76
+2025-04-09 01:13:38 - Option com value=[1] - LISTA 0 não encontrada.
+2025-04-09 01:13:38 - Loja Nao Localizada: 1
+2025-04-09 01:13:38 - Option com value=[2] - GRUPO 2 não encontrada.
+2025-04-09 01:13:38 - Loja Nao Localizada: 2
+2025-04-09 01:13:39 - Option com value=[3] - GRUPO 3 não encontrada.
+2025-04-09 01:13:39 - Loja Nao Localizada: 3
+2025-04-09 01:13:39 - Option com value=[4] - GRUPO 4 não encontrada.
+2025-04-09 01:13:39 - Loja Nao Localizada: 4
+2025-04-09 01:13:39 - Option com value=[5] - GRUPO 5 não encontrada.
+2025-04-09 01:13:39 - Loja Nao Localizada: 5
+2025-04-09 01:13:39 - Data Inicio 09/04/2025
+2025-04-09 01:13:40 - Option com value=[CD] - MATRIZ não encontrada.
+2025-04-09 01:13:40 - Loja Nao Localizada: CD
+2025-04-09 01:13:40 - Option com value=[40] - LOJA 40-BRAGANCA I não encontrada.
+2025-04-09 01:13:40 - Loja Nao Localizada: 40
+2025-04-09 01:13:40 - Loja Nao Localizada: 41
+2025-04-09 01:13:41 - Option com value=[63] - LOJA 63-RIB. SHOP não encontrada.
+2025-04-09 01:13:41 - Loja Nao Localizada: 63
+2025-04-09 01:13:41 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:41 - Loja Nao Localizada: 73
+2025-04-09 01:13:41 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:41 - Loja Nao Localizada: 74
+2025-04-09 01:13:42 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:42 - Loja Nao Localizada: 75
+2025-04-09 01:13:42 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:42 - Loja Nao Localizada: 76
+2025-04-09 01:13:42 - Option com value=[1] - LISTA 0 não encontrada.
+2025-04-09 01:13:42 - Loja Nao Localizada: 1
+2025-04-09 01:13:43 - Option com value=[2] - GRUPO 2 não encontrada.
+2025-04-09 01:13:43 - Loja Nao Localizada: 2
+2025-04-09 01:13:43 - Option com value=[3] - GRUPO 3 não encontrada.
+2025-04-09 01:13:43 - Loja Nao Localizada: 3
+2025-04-09 01:13:43 - Option com value=[4] - GRUPO 4 não encontrada.
+2025-04-09 01:13:43 - Loja Nao Localizada: 4
+2025-04-09 01:13:44 - Option com value=[5] - GRUPO 5 não encontrada.
+2025-04-09 01:13:44 - Loja Nao Localizada: 5
+2025-04-09 01:13:44 - Data Inicio 09/04/2025
+2025-04-09 01:13:44 - Option com value=[CD] - MATRIZ não encontrada.
+2025-04-09 01:13:44 - Loja Nao Localizada: CD
+2025-04-09 01:13:44 - Option com value=[40] - LOJA 40-BRAGANCA I não encontrada.
+2025-04-09 01:13:44 - Loja Nao Localizada: 40
+2025-04-09 01:13:45 - Option com value=[41] - LOJA 41-BRAGANCA II não encontrada.
+2025-04-09 01:13:45 - Loja Nao Localizada: 41
+2025-04-09 01:13:45 - Loja Nao Localizada: 63
+2025-04-09 01:13:45 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:45 - Loja Nao Localizada: 73
+2025-04-09 01:13:46 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:46 - Loja Nao Localizada: 74
+2025-04-09 01:13:46 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:46 - Loja Nao Localizada: 75
+2025-04-09 01:13:47 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:47 - Loja Nao Localizada: 76
+2025-04-09 01:13:47 - Option com value=[1] - LISTA 0 não encontrada.
+2025-04-09 01:13:47 - Loja Nao Localizada: 1
+2025-04-09 01:13:47 - Option com value=[2] - GRUPO 2 não encontrada.
+2025-04-09 01:13:47 - Loja Nao Localizada: 2
+2025-04-09 01:13:48 - Option com value=[3] - GRUPO 3 não encontrada.
+2025-04-09 01:13:48 - Loja Nao Localizada: 3
+2025-04-09 01:13:48 - Option com value=[4] - GRUPO 4 não encontrada.
+2025-04-09 01:13:48 - Loja Nao Localizada: 4
+2025-04-09 01:13:48 - Option com value=[5] - GRUPO 5 não encontrada.
+2025-04-09 01:13:48 - Loja Nao Localizada: 5
+2025-04-09 01:13:48 - Data Inicio 09/04/2025
+2025-04-09 01:13:49 - Loja Nao Localizada: CD
+2025-04-09 01:13:49 - Option com value=[40] - LOJA 40-BRAGANCA I não encontrada.
+2025-04-09 01:13:49 - Loja Nao Localizada: 40
+2025-04-09 01:13:49 - Option com value=[41] - LOJA 41-BRAGANCA II não encontrada.
+2025-04-09 01:13:49 - Loja Nao Localizada: 41
+2025-04-09 01:13:50 - Option com value=[63] - LOJA 63-RIB. SHOP não encontrada.
+2025-04-09 01:13:50 - Loja Nao Localizada: 63
+2025-04-09 01:13:50 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:50 - Loja Nao Localizada: 73
+2025-04-09 01:13:50 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:50 - Loja Nao Localizada: 74
+2025-04-09 01:13:51 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:51 - Loja Nao Localizada: 75
+2025-04-09 01:13:51 - Option com value=Grupo não encontrado não encontrada.
+2025-04-09 01:13:51 - Loja Nao Localizada: 76
+2025-04-09 01:13:52 - Option com value=[1] - LISTA 0 não encontrada.
+2025-04-09 01:13:52 - Loja Nao Localizada: 1
+2025-04-09 01:13:52 - Option com value=[2] - GRUPO 2 não encontrada.
+2025-04-09 01:13:52 - Loja Nao Localizada: 2
+2025-04-09 01:13:52 - Option com value=[3] - GRUPO 3 não encontrada.
+2025-04-09 01:13:52 - Loja Nao Localizada: 3
+2025-04-09 01:13:53 - Option com value=[4] - GRUPO 4 não encontrada.
+2025-04-09 01:13:53 - Loja Nao Localizada: 4
+2025-04-09 01:13:53 - Option com value=[5] - GRUPO 5 não encontrada.
+2025-04-09 01:13:53 - Loja Nao Localizada: 5
+2025-04-09 01:32:09 - Manutencao de Preco
+2025-04-09 01:32:09 - Data Inicio 09/04/2025
+2025-04-09 01:35:06 - Manutencao de Preco
+2025-04-09 01:35:07 - Data Inicio 09/04/2025
+2025-04-09 01:35:07 - CD não encontrada nas opções.
+2025-04-09 01:35:07 - Loja Nao Localizada: CD
+2025-04-09 01:35:07 - [40] - LOJA 40-BRAGANCA I ALTERADO
+2025-04-09 01:35:07 - Produto: 206084
+2025-04-09 01:45:11 - Manutencao de Preco
+2025-04-09 01:45:12 - Data Inicio 09/04/2025
+2025-04-09 01:45:37 - Manutencao de Preco
+2025-04-09 01:45:38 - Data Inicio 09/04/2025
+2025-04-09 01:54:26 - Manutencao de Preco
+2025-04-09 01:54:27 - Data Inicio 09/04/2025

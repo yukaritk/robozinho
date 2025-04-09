@@ -14,11 +14,11 @@ class HelperMethods:
             timeout=6  # Tempo em segundos que a notificação ficará visível
         )
 
-    def carregando(self, id_html):
+    def carregando(self, text):
         time_out = 10
         while time_out > 0:
             html = self.driver.page_source
-            if id_html in html:
+            if text in html:
                 return
             time.sleep(0.5)
             time_out -= 0.5

@@ -15,12 +15,13 @@ import logging
 class ClickBtnMenu:
     def __init__(self, driver):
         self.driver = driver
-
+        
     def select_btnMenu(self, op, parent=None):
         if parent:
-            botoes = self.driver.find_elements(By.XPATH, f"//*[contains(@id, '{parent}')]")
+            scope = self.driver.find_element(By.XPATH, f"//*[contains(@id, '{parent}')]")
+            botoes = scope.find_elements(By.CLASS_NAME, "btnMenu")
         else:
-            botoes = self.driver.find_elements(By.XPATH, "//*[contains(@class, 'btn')]")
+            botoes = self.driver.find_elements(By.CLASS_NAME, "btnMenu")
 
         for botao in botoes:
             if botao.is_displayed():
@@ -29,3 +30,4 @@ class ClickBtnMenu:
                     time.sleep(1)
                     return
         raise Exception
+    

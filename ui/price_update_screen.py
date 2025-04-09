@@ -3,8 +3,8 @@ from tkinter import filedialog
 import os
 import pandas as pd
 import subprocess
-
-
+from utils.helper_methods import HelperMethods
+from logic.price_update import PriceUpdate
 
 class PriceUpdateScreen:
     def __init__(self, parent_root):
@@ -38,7 +38,7 @@ class PriceUpdateScreen:
         layout_button = ctk.CTkButton(frame, text="Layout", fg_color="#ec008c", hover_color="#bf0073", command=self.download_layout)
         layout_button.pack(pady=(10, 0), anchor="e", padx=20)
         
-        start_button = ctk.CTkButton(frame, text="Iniciar", fg_color="#13aa7d", hover_color="#1b7c5f")
+        start_button = ctk.CTkButton(frame, text="Iniciar", fg_color="#13aa7d", hover_color="#1b7c5f", command=self.iniciar_processo)
         start_button.pack(pady=(10, 0), anchor="e", padx=20)
 
     def browse_file(self):
@@ -70,3 +70,11 @@ class PriceUpdateScreen:
             print("Layout baixado com sucesso!")
         except Exception as e:
             print(f"Erro ao baixar o layout: {e}")
+
+    def iniciar_processo(self):
+        caminho = self.entry_file_path.get()
+        if not caminho:
+            HelperMethods.notificar("Erro", "⚠️ Selecione o arquivo e a operação!")
+            return
+        price_update = PriceUpdate(caminho)
+        price_update.analisar_planilha()
