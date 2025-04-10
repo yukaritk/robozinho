@@ -1,0 +1,1210 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <link class="component" href="/eVendas/a4j/s/3_3_2.SR1org/richfaces/renderkit/html/css/basic_classes.xcss/DATB/eAGbo7-tNnT5DGkAEXoDrg__.faces" rel="stylesheet" type="text/css"/>
+  <link class="component" href="/eVendas/a4j/s/3_3_2.SR1org/richfaces/renderkit/html/css/extended_classes.xcss/DATB/eAGbo7-tNnT5DGkAEXoDrg__.faces" rel="stylesheet" type="text/css"/>
+  <script src="/eVendas/a4j/g/3_3_2.SR1org.ajax4jsf.javascript.AjaxScript.faces" type="text/javascript">
+  </script>
+  <script src="/eVendas/a4j/g/3_3_2.SR1org.ajax4jsf.javascript.PrototypeScript.faces" type="text/javascript">
+  </script>
+  <script src="/eVendas/a4j/g/3_3_2.SR1org/richfaces/renderkit/html/scripts/utils.js.faces" type="text/javascript">
+  </script>
+  <script src="/eVendas/a4j/g/3_3_2.SR1org/richfaces/renderkit/html/scripts/browser_info.js.faces" type="text/javascript">
+  </script>
+  <script src="/eVendas/a4j/g/3_3_2.SR1org/richfaces/renderkit/html/scripts/modalPanel.js.faces" type="text/javascript">
+  </script>
+  <script src="/eVendas/a4j/g/3_3_2.SR1org/richfaces/renderkit/html/scripts/modalPanelBorders.js.faces" type="text/javascript">
+  </script>
+  <link class="component" href="/eVendas/a4j/s/3_3_2.SR1org/richfaces/renderkit/html/css/modalPanel.xcss/DATB/eAGbo7-tNnT5DGkAEXoDrg__.faces" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript">
+   window.RICH_FACES_EXTENDED_SKINNING_ON=true;
+  </script>
+  <script src="/eVendas/a4j/g/3_3_2.SR1org/richfaces/renderkit/html/scripts/skinning.js.faces" type="text/javascript">
+  </script>
+  <script language="JavaScript" src="/eVendas/dwr/engine.js">
+  </script>
+  <script language="JavaScript" src="/eVendas/dwr/interface/DwrResolucao.js">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/jquery.js?1744250287800">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/functions.js?1744250287800">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/jquery.maskedinput-min.js">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/jquery.maskdecimal.js?1744250287800">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/jquery.price_format.js">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/jquery.livequery.js">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/jquery.timers.js">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/jquery.printElement.js">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/jquery.tooltip.min.js">
+  </script>
+  <script language="JavaScript" src="/eVendas/js/jquery-ui-1.8.custom.min.js">
+  </script>
+  <script type="text/javascript">
+   $jq = jQuery.noConflict();
+            var de = document.documentElement;
+            var w = window.innerWidth || self.innerWidth || (de&&de.clientWidth) || document.body.clientWidth;
+            var h = window.innerHeight || self.innerHeight || (de&&de.clientHeight) || document.body.clientHeight;
+            $jq(document).ready(function() {
+                $jq(".iptPercent").livequery("keydown", function() {
+                    return jQuery.CtlKeyPress(this);
+                });                                
+                
+                DwrResolucao.configuraResolucao(h, {
+                    callback:function(altura) {
+                        $jq("#divConteudo").css("height", altura-12);
+                        if ($jq.browser.msie) {
+                            if ($jq.browser.version == "7.0") {
+                                $jq("#divConteudo").css("overflow", "scroll");
+                            } else {
+                                $jq("#divConteudo").css("overflow", "auto");
+                            }
+                        } else {
+                            $jq("#divConteudo").css("overflow", "auto");
+                        }
+                    }
+                    , errorHandler:function(errorString, exception){
+                        alert("???LBL_ERRO_REDIMENSIONAMENTO???");
+                    }
+                });
+                
+                               
+                $jq.AlturaDivConteudo = function() {
+                    return h - 30 - 10;
+                };
+                
+                
+            });
+  </script>
+  <title>
+   Sistema de Pedidos
+  </title>
+  <link href="/eVendas/css/padrao.css?1744250287800" id="linkHome" rel="stylesheet" type="text/css"/>
+  <link href="/eVendas/css/tooltip.css?1744250287800" rel="stylesheet" type="text/css"/>
+  <link href="/eVendas/css/jquery-ui-1.8.custom.css" rel="stylesheet" type="text/css"/>
+  <link href="/eVendas/css/calendar.css?1744250287800" rel="stylesheet" type="text/css"/>
+  <link href="/eVendas/css/img/ico/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
+  <link href="/eVendas/css/img/ico/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60"/>
+  <link href="/eVendas/css/img/ico/apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+  <link href="/eVendas/css/img/ico/apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76"/>
+  <link href="/eVendas/css/img/ico/apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"/>
+  <link href="/eVendas/css/img/ico/apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120"/>
+  <link href="/eVendas/css/img/ico/apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144"/>
+  <link href="/eVendas/css/img/ico/apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152"/>
+  <link href="/eVendas/css/img/ico/apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180"/>
+  <link href="/eVendas/css/img/ico/android-icon-192x192.png" rel="icon" sizes="192x192" type="image/png"/>
+  <link href="/eVendas/css/img/ico/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+  <link href="/eVendas/css/img/ico/favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"/>
+  <link href="/eVendas/css/img/ico/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+  <link href="/eVendas/css/img/ico/manifest.json" rel="manifest"/>
+  <meta content="#ffffff" name="msapplication-TileColor"/>
+  <meta content="/css/img/ico/ms-icon-144x144.png" name="msapplication-TileImage"/>
+  <meta content="#ffffff" name="theme-color"/>
+  <link href="/eVendas/css/default.css" rel="stylesheet" type="text/css"/>
+ </head>
+ <body>
+  <div class="divMenu" id="divMenu">
+   <form action="/eVendas/home.faces" enctype="application/x-www-form-urlencoded" id="formPrincipal" method="post" name="formPrincipal">
+    <input autocomplete="off" name="formPrincipal" type="hidden" value="formPrincipal"/>
+    <input autocomplete="off" class="btnMenu" id="opHome" name="opHome" tabindex="0" type="submit" value="Home"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opVendas" name="opVendas" tabindex="0" type="submit" value="Vendas"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opCadastros" name="opCadastros" tabindex="0" type="submit" value="Cadastros"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opPedEletr" name="opPedEletr" tabindex="0" type="submit" value="Pedido Eletrônico"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opRelatorio" name="opRelatorio" tabindex="0" type="submit" value="Relatório"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opConsultas" name="opConsultas" tabindex="0" type="submit" value="Consultas"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opCompras" name="opCompras" tabindex="0" type="submit" value="Compras"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opSitCliente" name="opSitCliente" tabindex="0" type="submit" value="Situação Cliente"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opMovInterna" name="opMovInterna" tabindex="0" type="submit" value="Mov. Interna"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opMarketPlace" name="opMarketPlace" tabindex="0" type="submit" value="Market Place"/>
+    <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+     |
+    </span>
+    <input autocomplete="off" class="btnMenu" id="opLogout" name="opLogout" onclick="A4J.AJAX.Submit('formPrincipal',event,{'similarityGroupingId':'opLogout','parameters':{'opLogout':'opLogout','ajaxSingle':'opLogout'} } );return false;" style="display: " tabindex="0" type="button" value="Sair"/>
+    <input autocomplete="off" id="javax.faces.ViewState" name="javax.faces.ViewState" type="hidden" value="j_id2"/>
+   </form>
+  </div>
+  <div class="divConteudo" id="divConteudo" style="border: 0px solid black; height: 1155px; overflow: auto;">
+   <span id="pnlCentral" xmlns="http://www.w3.org/1999/xhtml">
+    <span id="incCentral">
+     <form action="/eVendas/home.faces" enctype="application/x-www-form-urlencoded" id="incCentral:j_id30" method="post" name="incCentral:j_id30">
+      <input autocomplete="off" name="incCentral:j_id30" type="hidden" value="incCentral:j_id30"/>
+      <div class="divMenuDiversos" id="incCentral:j_id30:divMenuDiversos">
+       <input autocomplete="off" class="btnMenu" id="incCentral:j_id30:opMetas" name="incCentral:j_id30:opMetas" onclick="A4J.AJAX.Submit('incCentral:j_id30',event,{'similarityGroupingId':'incCentral:j_id30:opMetas','parameters':{'incCentral:j_id30:opMetas':'incCentral:j_id30:opMetas','ajaxSingle':'incCentral:j_id30:opMetas'} } );return false;" type="button" value="Metas"/>
+       <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+        |
+       </span>
+       <input autocomplete="off" class="btnMenu" id="incCentral:j_id30:opPrecos" name="incCentral:j_id30:opPrecos" onclick="A4J.AJAX.Submit('incCentral:j_id30',event,{'similarityGroupingId':'incCentral:j_id30:opPrecos','parameters':{'incCentral:j_id30:opPrecos':'incCentral:j_id30:opPrecos','ajaxSingle':'incCentral:j_id30:opPrecos'} } );return false;" type="button" value="Preços"/>
+      </div>
+      <input autocomplete="off" id="javax.faces.ViewState" name="javax.faces.ViewState" type="hidden" value="j_id2"/>
+     </form>
+     <div class="divConteudo" id="incCentral:divConteudoDiversos" style="border: 0px solid black;">
+      <span id="incCentral:pnlCentralDiversos">
+       <span id="incCentral:incCentralDiversos">
+        <form action="/eVendas/home.faces" enctype="application/x-www-form-urlencoded" id="incCentral:incCentralDiversos:j_id49" method="post" name="incCentral:incCentralDiversos:j_id49">
+         <input autocomplete="off" name="incCentral:incCentralDiversos:j_id49" type="hidden" value="incCentral:incCentralDiversos:j_id49"/>
+         <div class="divSubMenu" id="incCentral:incCentralDiversos:j_id49:divMenuDiversos">
+          <input autocomplete="off" class="btnMenu" id="incCentral:incCentralDiversos:j_id49:opPrecoPromo" name="incCentral:incCentralDiversos:j_id49:opPrecoPromo" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:j_id49',event,{'similarityGroupingId':'incCentral:incCentralDiversos:j_id49:opPrecoPromo','parameters':{'incCentral:incCentralDiversos:j_id49:opPrecoPromo':'incCentral:incCentralDiversos:j_id49:opPrecoPromo','ajaxSingle':'incCentral:incCentralDiversos:j_id49:opPrecoPromo'} } );return false;" type="button" value="Preço Promo"/>
+          <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+           |
+          </span>
+          <input autocomplete="off" class="btnMenu" id="incCentral:incCentralDiversos:j_id49:opGrupoPreVenda" name="incCentral:incCentralDiversos:j_id49:opGrupoPreVenda" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:j_id49',event,{'similarityGroupingId':'incCentral:incCentralDiversos:j_id49:opGrupoPreVenda','parameters':{'incCentral:incCentralDiversos:j_id49:opGrupoPreVenda':'incCentral:incCentralDiversos:j_id49:opGrupoPreVenda','ajaxSingle':'incCentral:incCentralDiversos:j_id49:opGrupoPreVenda'} } );return false;" type="button" value="Grupo de Preços"/>
+          <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+           |
+          </span>
+          <input autocomplete="off" class="btnMenu" id="incCentral:incCentralDiversos:j_id49:opTabloide" name="incCentral:incCentralDiversos:j_id49:opTabloide" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:j_id49',event,{'similarityGroupingId':'incCentral:incCentralDiversos:j_id49:opTabloide','parameters':{'incCentral:incCentralDiversos:j_id49:opTabloide':'incCentral:incCentralDiversos:j_id49:opTabloide','ajaxSingle':'incCentral:incCentralDiversos:j_id49:opTabloide'} } );return false;" type="button" value="Tablóide"/>
+          <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+           |
+          </span>
+          <input autocomplete="off" class="btnMenu" id="incCentral:incCentralDiversos:j_id49:opManutCustoProd" name="incCentral:incCentralDiversos:j_id49:opManutCustoProd" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:j_id49',event,{'similarityGroupingId':'incCentral:incCentralDiversos:j_id49:opManutCustoProd','parameters':{'incCentral:incCentralDiversos:j_id49:opManutCustoProd':'incCentral:incCentralDiversos:j_id49:opManutCustoProd','ajaxSingle':'incCentral:incCentralDiversos:j_id49:opManutCustoProd'} } );return false;" type="button" value="Manut. Custo Prod."/>
+          <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+           |
+          </span>
+          <input autocomplete="off" class="btnMenu" id="incCentral:incCentralDiversos:j_id49:opDescAdicional" name="incCentral:incCentralDiversos:j_id49:opDescAdicional" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:j_id49',event,{'similarityGroupingId':'incCentral:incCentralDiversos:j_id49:opDescAdicional','parameters':{'incCentral:incCentralDiversos:j_id49:opDescAdicional':'incCentral:incCentralDiversos:j_id49:opDescAdicional','ajaxSingle':'incCentral:incCentralDiversos:j_id49:opDescAdicional'} } );return false;" type="button" value="Desc. Adicional"/>
+          <span style="font: 13px Arial, sans-serif; font-weight: bold;">
+           |
+          </span>
+          <input autocomplete="off" class="btnMenu" id="incCentral:incCentralDiversos:j_id49:opRevPreco" name="incCentral:incCentralDiversos:j_id49:opRevPreco" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:j_id49',event,{'similarityGroupingId':'incCentral:incCentralDiversos:j_id49:opRevPreco','parameters':{'incCentral:incCentralDiversos:j_id49:opRevPreco':'incCentral:incCentralDiversos:j_id49:opRevPreco','ajaxSingle':'incCentral:incCentralDiversos:j_id49:opRevPreco'} } );return false;" type="button" value="Revisão de Preço"/>
+         </div>
+         <input autocomplete="off" id="javax.faces.ViewState" name="javax.faces.ViewState" type="hidden" value="j_id2"/>
+        </form>
+        <div class="divConteudo" id="incCentral:incCentralDiversos:divConteudoDiversos" style="border: 0px solid black;">
+         <span id="incCentral:incCentralDiversos:pnlCentralDiversos">
+          <span id="incCentral:incCentralDiversos:incCentralDiversos">
+           <link href="/eVendas/css/default.css" rel="stylesheet" type="text/css"/>
+           <script type="text/javascript">
+            //<![CDATA[
+            function VerificaSessao() {
+                DwrResolucao.sessionOK({
+                    callback:function(resultado) {                        
+                        if (resultado == 0) {
+                            if ($jq.browser.msie) {                                
+                                //$jq("#formPrincipal").submit();
+                                window.location = '/eFrenteLoja/403.jsp';
+                                history.go(-1);
+                                return false;
+                            } else {
+                                window.location = '/eFrenteLoja/403.jsp';
+                                return false;
+                            }                                                           
+                        }                       
+
+                        return true;
+                    }
+                });
+            }
+        //]]>
+           </script>
+           <script type="text/javascript">
+            //<![CDATA[
+            function ConfirmaExclusaoRegistro() {
+                if (!confirm('Tem certeza que deseja excluir o registro?')){
+                return false;
+            }
+            return true;
+        }
+            
+        //]]>
+           </script>
+           <script type="text/javascript">
+            //<![CDATA[
+        function configuraCampos() {
+            jQuery("input[id*='txtPvdDtIniValidade']").each(function() {
+                jQuery(this).mask("99/99/9999",{placeholder:" "});
+                if (jQuery(this).attr("disabled") == false){
+                    jQuery(this).datepicker({
+                        dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab']
+                        , monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro']
+                        , monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+                        , gotoCurrent: true
+                        , dateFormat: 'dd/mm/yy'
+                        , navigationAsDateFormat: true
+                        , showOn: 'button'
+                        , onClose: function(dateText, inst) {
+                            $jq(this).attr("disabled", false);
+                        }
+                        , beforeShow: function(input, inst) {
+                            $jq(this).attr("disabled", true);
+                        }
+                        , buttonImageOnly: true
+                        , buttonImage: '/eVendas/css/img/dataPicker/cal.png'
+                        , buttonText: 'Calendário'
+                        , changeMonth: true
+                        , changeYear: true
+                        , minDate: '-2y'
+                        , maxDate: '+2y'
+                    });                
+                }
+                jQuery(this).next().css("margin", "2px");   
+                jQuery(this).next().css("top", "3px");
+                jQuery(this).next().css("position", "relative");
+                jQuery(this).next().css("cursor", "pointer");
+            });
+            jQuery("#ui-datepicker-div").css("font-size", "11px");
+            jQuery("#ui-datepicker-div").css("display", "none");
+                
+            jQuery("input[id*='VlVendaRevenda']").each(function() {
+                jQuery(this).attr("mask", "13,2");
+            });
+            jQuery("input[id*='VlVendaConsumo']").each(function() {
+                jQuery(this).attr("mask", "13,2");
+            });
+            jQuery("input[id*='VlCustoReposicao']").each(function() {
+                jQuery(this).attr("mask", "13,2");
+            });
+            jQuery("input[id*='VlFmRevenda']").each(function() {
+                jQuery(this).attr("mask", "13,2");
+            });
+            jQuery("input[id*='VlFmConsumo']").each(function() {
+                jQuery(this).attr("mask", "13,2");
+            });
+        }
+        //]]>
+           </script>
+           <script type="text/javascript">
+            /* <![CDATA[ */
+        jQuery.calculaMk = function(obj) {
+            var vTxtVlRevenda = Number(ValorCalculo(jQuery("input[id*='VlVendaRevenda']").val()));
+            if ((jQuery(obj).attr("id") != undefined) && (jQuery(obj).attr("id").indexOf("VlVendaConsumo") == -1)) {
+                jQuery("input[id*='VlVendaConsumo']").val(FormataValor(vTxtVlRevenda, 2));
+            }
+            var vTxtVlConsumo = Number(ValorCalculo(jQuery("input[id*='VlVendaConsumo']").val()));
+            var vTxtCusto = Number(ValorCalculo(jQuery("input[id*='VlCustoReposicao']").val()));
+            var objMkCalculaRev = jQuery("input[id*='VlFmRevenda']");
+            var objMkCalculaCon = jQuery("input[id*='VlFmConsumo']");
+
+            if (vTxtCusto != 0) {
+                jQuery(objMkCalculaRev).val(FormataValor(((vTxtVlRevenda/vTxtCusto) - 1)*100, 2));
+                jQuery(objMkCalculaCon).val(FormataValor(((vTxtVlConsumo/vTxtCusto) - 1)*100, 2));
+            } else {
+                jQuery(objMkCalculaRev).val(FormataValor("0.00", 2));
+                jQuery(objMkCalculaCon).val(FormataValor("0.00", 2));
+            }
+        }
+        
+        jQuery.calculaVlVenda = function(obj) {
+            var objVlRevenda = jQuery("input[id*='VlVendaRevenda']");
+            var objVlConsumo = jQuery("input[id*='VlVendaConsumo']");
+            var vTxtCusto = Number(ValorCalculo(jQuery("input[id*='VlCustoReposicao']").val()));
+            var vTxtMkCalculaRev = Number(ValorCalculo(jQuery("input[id*='VlFmRevenda']").val()));
+            if ((jQuery(obj).attr("id") != undefined) && (jQuery(obj).attr("id").indexOf("VlFmConsumo") == -1)) {
+                jQuery("input[id*='VlFmConsumo']").val(FormataValor(vTxtMkCalculaRev, 2));
+            }
+            var vTxtMkCalculaCon = Number(ValorCalculo(jQuery("input[id*='VlFmConsumo']").val()));
+
+            jQuery(objVlRevenda).val(FormataValor((vTxtCusto * (1 + (vTxtMkCalculaRev/100))), 2));
+            jQuery(objVlConsumo).val(FormataValor((vTxtCusto * (1 + (vTxtMkCalculaCon/100))), 2));
+        }
+        /* ]]> */
+           </script>
+           <form action="/eVendas/home.faces" enctype="multipart/form-data" id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo" method="post" name="incCentral:incCentralDiversos:incCentralDiversos:formConteudo">
+            <input autocomplete="off" name="incCentral:incCentralDiversos:incCentralDiversos:formConteudo" type="hidden" value="incCentral:incCentralDiversos:incCentralDiversos:formConteudo"/>
+            <table cellpadding="0" cellspacing="1" class="pnlTitulo">
+             <tbody>
+              <tr>
+               <td class="pagCrudTitle">
+                Manutenção do Custo do Produto
+               </td>
+               <td class="pagCrudTitle">
+               </td>
+               <td class="pagCrudTitle">
+                <div id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:j_id85" style="width: 150px">
+                 <span id="_viewRoot:status">
+                  <span id="_viewRoot:status.start" style="display: none">
+                   <div class="ajaxcarregando" id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:loading">
+                    <img height="16" src="/eVendas/css/img/imgAjaxLoader2.gif" width="16"/>
+                    Carregando
+                   </div>
+                  </span>
+                  <span id="_viewRoot:status.stop">
+                  </span>
+                 </span>
+                </div>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+            <table cellpadding="0" cellspacing="1" class="pnlCrud" id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:blcPesquisa">
+             <thead>
+              <tr>
+               <th class="pnlHeader" colspan="1" scope="colgroup">
+                Pesquisar
+               </th>
+              </tr>
+             </thead>
+             <tbody>
+              <tr class="pnlPesquisa">
+               <td>
+                <span id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlAreaInclusao">
+                 <table id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlVndPrecoVenda">
+                  <tbody>
+                   <tr>
+                    <td>
+                     <table id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlBasePrecoVendaAdd">
+                      <tbody>
+                       <tr>
+                        <td>
+                         <label style="font-weight: bold;">
+                          CNPJ:
+                         </label>
+                        </td>
+                        <td>
+                         <select id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:selEmiCoCnpj" name="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:selEmiCoCnpj" onchange="A4J.AJAX.Submit('incCentral:incCentralDiversos:incCentralDiversos:formConteudo',event,{'similarityGroupingId':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:j_id4239','control':this,'parameters':{'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:j_id4239':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:j_id4239','ajaxSingle':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:selEmiCoCnpj'} } )" size="1">
+                          <option value="2183783000111">
+                           [CD] - MATRIZ
+                          </option>
+                          <option value="72714637000150">
+                           [40] - LOJA 40-BRAGANCA I
+                          </option>
+                          <option value="72714637000401">
+                           [41] - LOJA 41-BRAGANCA II
+                          </option>
+                          <option value="2183783003137">
+                           [63] - LOJA 63-RIB. SHOP
+                          </option>
+                          <option value="4144822000105">
+                           [73] - LOJA 73-SJC CENTRO
+                          </option>
+                          <option value="4144822000288">
+                           [74] - LOJA 74-CACAPAVA
+                          </option>
+                          <option selected="selected" value="4144822000369">
+                           [75] - LOJA 75-SJC SATELITE
+                          </option>
+                          <option value="4144822000440">
+                           [76] - LOJA 76-SJC SHOPPING
+                          </option>
+                          <option value="1">
+                           [1] - LISTA 0
+                          </option>
+                          <option value="2">
+                           [2] - GRUPO 2
+                          </option>
+                          <option value="3">
+                           [3] - GRUPO 3
+                          </option>
+                          <option value="4">
+                           [4] - GRUPO 4
+                          </option>
+                          <option value="5">
+                           [5] - GRUPO 5
+                          </option>
+                         </select>
+                        </td>
+                        <td>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <label style="font-weight: bold;">
+                          Dt. Início
+                         </label>
+                        </td>
+                        <td>
+                         <input autocomplete="off" class="ipt hasDatepicker" id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:txtPvdDtIniValidade" name="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:txtPvdDtIniValidade" onchange="A4J.AJAX.Submit('incCentral:incCentralDiversos:incCentralDiversos:formConteudo',event,{'similarityGroupingId':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:j_id4244','control':this,'parameters':{'ajaxSingle':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:txtPvdDtIniValidade','incCentral:incCentralDiversos:incCentralDiversos:formConteudo:j_id4244':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:j_id4244'} } )" size="11" type="text" value="09/04/2025"/>
+                         <img alt="Calendário" class="ui-datepicker-trigger" src="/eVendas/css/img/dataPicker/cal.png" style="margin: 2px; top: 3px; position: relative; cursor: pointer;" title="Calendário"/>
+                        </td>
+                        <td>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <label style="font-weight: bold;">
+                          Produto/Grupo:
+                         </label>
+                        </td>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlNoPrdFiltro">
+                          [-1] - Nenhum
+                         </span>
+                         <input autocomplete="off" class="btn" id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqGrupoPreco" name="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqGrupoPreco" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:incCentralDiversos:formConteudo',event,{'similarityGroupingId':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqGrupoPreco','oncomplete':function(request,event,data){document.getElementById('incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPreco').component.show();return false; },'parameters':{'ajaxSingle':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqGrupoPreco','incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqGrupoPreco':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqGrupoPreco'} } );return false;" style="font-size: 11px" type="button" value="Sel. o Grupo Preço"/>
+                         <input autocomplete="off" class="btn" id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqProduto" name="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqProduto" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:incCentralDiversos:formConteudo',event,{'similarityGroupingId':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqProduto','oncomplete':function(request,event,data){document.getElementById('incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProduto').component.show();return false; },'parameters':{'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqProduto':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqProduto','ajaxSingle':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnPesqProduto'} } );return false;" style="font-size: 11px" type="button" value="Selecionar o Produto"/>
+                         <input autocomplete="off" class="btn" id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnLimparProduto" name="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnLimparProduto" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:incCentralDiversos:formConteudo',event,{'similarityGroupingId':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnLimparProduto','parameters':{'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnLimparProduto':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnLimparProduto','ajaxSingle':'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:btnLimparProduto'} } );return false;" style="font-size: 11px" type="button" value="Limpar"/>
+                        </td>
+                        <td>
+                        </td>
+                       </tr>
+                      </tbody>
+                     </table>
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>
+                    </td>
+                   </tr>
+                   <tr>
+                    <td>
+                     <script type="text/javascript">
+                      //<![CDATA[
+                configuraCampos();
+                //]]>
+                     </script>
+                    </td>
+                   </tr>
+                  </tbody>
+                 </table>
+                </span>
+               </td>
+              </tr>
+              <tr class="pnlResultado">
+               <td>
+                <div class="errorMessageGlobal" id="incCentral:incCentralDiversos:incCentralDiversos:formConteudo:j_id261">
+                </div>
+               </td>
+              </tr>
+             </tbody>
+            </table>
+            <input autocomplete="off" id="javax.faces.ViewState" name="javax.faces.ViewState" type="hidden" value="j_id2"/>
+           </form>
+           <div id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProduto" style="display: none;">
+            <input autocomplete="off" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoOpenedState" name="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoOpenedState" type="hidden"/>
+            <div class="rich-modalpanel modalPesquisaCrud" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoContainer" style="position: absolute; display: none; z-index: 99999; background-color: inherit;">
+             <div class="rich-mpnl-mask-div-opaque rich-mpnl-mask-div" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoDiv" style="z-index: -1;">
+              <button class="rich-mpnl-button" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoFirstHref">
+              </button>
+             </div>
+             <div class="rich-mpnl-panel">
+              <div class="rich-mp-container" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;">
+               <div class="rich-mpnl-shadow" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoShadowDiv">
+               </div>
+               <div class="rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoContentDiv">
+                <div class="rich-mpnl-text rich-mpnl-controls">
+                 <img class="hidelink" onclick="document.getElementById('incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProduto').component.hide()" src="/eVendas/css/img/imgCloseModal.png"/>
+                </div>
+                <table border="0" cellpadding="0" cellspacing="0" class="rich-mp-content-table" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoContentTable" style="height: 100%; width: 100%;">
+                 <tbody>
+                  <tr style="height: 1%;">
+                   <td class="rich-mpnl-header-cell">
+                    <div class="rich-mpnl-text rich-mpnl-header tblHeader" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoHeader" style="white-space: nowrap;">
+                     Pesquisa - Produtos
+                     <script type="text/javascript">
+                      //<![CDATA[
+                
+            function pesquisaRegistrosProduto(objHtml) {                    
+                var tblFiltro = jQuery(objHtml).parent().parent().parent();                    
+                jQuery("tr:eq(2)", tblFiltro).each(function() {                        
+                    jQuery(".btn", this).click();
+                });
+            }
+        //]]>
+                     </script>
+                    </div>
+                   </td>
+                  </tr>
+                  <tr style="height: 99%">
+                   <td class="rich-mpnl-body" valign="top">
+                    <form action="/eVendas/home.faces" enctype="multipart/form-data" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd" method="post" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd">
+                     <input autocomplete="off" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd" type="hidden" value="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd"/>
+                     <table cellpadding="0" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:panelGridFiltragem">
+                      <tbody>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:pnlModalPesquisaFiltragemPrd">
+                          <table cellpadding="1" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:pnlPsqProdutoFiltro" style="font-size: 11px">
+                           <tbody>
+                            <tr>
+                             <td>
+                              <label>
+                               Código:
+                              </label>
+                             </td>
+                             <td>
+                              <input autocomplete="off" class="iptPesquisa" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:txtPrdCoProdutoFiltro" maxlength="60" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:txtPrdCoProdutoFiltro" onkeydown="if (jQuery.TeclaEvento(event) == 13) { pesquisaRegistrosProduto(this); }" onkeypress="if (jQuery.TeclaEvento(event) == 13) { return false;}" onkeyup="jQuery.Mascara(this, event, 'texto')" size="50" type="text" value="120457"/>
+                             </td>
+                             <td>
+                             </td>
+                            </tr>
+                            <tr>
+                             <td>
+                              <label>
+                               Nome:
+                              </label>
+                             </td>
+                             <td>
+                              <input autocomplete="off" class="iptPesquisa" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:txtPrdNoProdutoFiltro" maxlength="120" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:txtPrdNoProdutoFiltro" onkeydown="if (jQuery.TeclaEvento(event) == 13) { pesquisaRegistrosProduto(this); }" onkeypress="if (jQuery.TeclaEvento(event) == 13) { return false;}" onkeyup="jQuery.Mascara(this, event, 'texto')" size="60" type="text" value=""/>
+                             </td>
+                             <td>
+                             </td>
+                            </tr>
+                            <tr>
+                             <td>
+                              <input autocomplete="off" class="btn" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:btnPsqProduto" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:btnPsqProduto" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd',event,{'similarityGroupingId':'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:btnPsqProduto','parameters':{'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:btnPsqProduto':'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:btnPsqProduto'} } );return false;" type="button" value="Pesquisar"/>
+                             </td>
+                            </tr>
+                           </tbody>
+                          </table>
+                         </span>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <table cellpadding="2" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:tblIveHdPsqParticipante">
+                          <thead>
+                           <tr>
+                            <th class="tblHeader" width="401px">
+                             Nome
+                            </th>
+                            <th class="tblHeader" width="100px">
+                             Selecionar
+                            </th>
+                           </tr>
+                          </thead>
+                          <tbody id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:tblIveHdPsqParticipante:tbody_element">
+                           <tr>
+                            <td>
+                            </td>
+                           </tr>
+                          </tbody>
+                         </table>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:pnlModalTblConteudoPrd">
+                          <div class="divPesquisa" style="width: 580px;">
+                           <table cellpadding="2" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:tblPsqInfoParticipanteBody">
+                            <tbody id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:tblPsqInfoParticipanteBody:tbody_element">
+                             <tr class="tblLinhaPar">
+                              <td class="tblLinha" width="400px">
+                               120457 - COL MAUA VERT ATOMISEUR TRADICIONAL 100ML
+                              </td>
+                              <td class="tblLinha tdCenter" width="100px">
+                               <input autocomplete="off" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:tblPsqInfoParticipanteBody:0:j_id291" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:tblPsqInfoParticipanteBody:0:j_id291" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd',event,{'similarityGroupingId':'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:tblPsqInfoParticipanteBody:0:j_id291','oncomplete':function(request,event,data){document.getElementById('incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProduto').component.hide(); },'parameters':{'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:tblPsqInfoParticipanteBody:0:j_id291':'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:tblPsqInfoParticipanteBody:0:j_id291'} } );return false;" src="/eVendas/css/img/imgAlterar.png" type="image"/>
+                              </td>
+                             </tr>
+                            </tbody>
+                           </table>
+                          </div>
+                         </span>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:pnlModalTblConteudoPrd_footer">
+                         </span>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:pnlModalPaginacaoIncludePrd">
+                          <table class="pagAlinhamento" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:pnlModalPaginacao">
+                           <tbody>
+                            <tr>
+                             <td>
+                              <table cellpadding="2" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela">
+                               <thead>
+                                <tr>
+                                 <th>
+                                  Registros retornados: 1
+                                 </th>
+                                 <th width="30px">
+                                  <input autocomplete="off" disabled="disabled" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela:j_id301" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela:j_id301" onclick="return false;" src="/eVendas/css/img/imgBackAll.png" type="image"/>
+                                 </th>
+                                 <th width="30px">
+                                  <input autocomplete="off" disabled="disabled" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela:j_id303" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela:j_id303" onclick="return false;" src="/eVendas/css/img/imgBack.png" type="image"/>
+                                 </th>
+                                 <th width="50px">
+                                  1 / 1
+                                 </th>
+                                 <th width="30px">
+                                  <input autocomplete="off" disabled="disabled" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela:j_id307" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela:j_id307" onclick="return false;" src="/eVendas/css/img/imgForward.png" type="image"/>
+                                 </th>
+                                 <th width="30px">
+                                  <input autocomplete="off" disabled="disabled" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela:j_id309" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela:j_id309" onclick="return false;" src="/eVendas/css/img/imgForwardAll.png" type="image"/>
+                                 </th>
+                                </tr>
+                               </thead>
+                               <tbody id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:dtModalTabela:tbody_element">
+                                <tr>
+                                 <td>
+                                 </td>
+                                </tr>
+                               </tbody>
+                              </table>
+                             </td>
+                            </tr>
+                           </tbody>
+                          </table>
+                         </span>
+                        </td>
+                       </tr>
+                      </tbody>
+                     </table>
+                     <input autocomplete="off" id="javax.faces.ViewState" name="javax.faces.ViewState" type="hidden" value="j_id2"/>
+                    </form>
+                   </td>
+                  </tr>
+                 </tbody>
+                </table>
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerN" style="width: 40px; height: 4px; cursor: n-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerE" style="height: 40px; width: 4px; cursor: e-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerS" style="width: 40px; height: 4px; cursor: s-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerW" style="height: 40px; width: 4px; cursor: w-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerNWU" style="width: 40px; height: 4px; cursor: nw-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerNEU" style="height: 40px; width: 4px; cursor: ne-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerNEL" style="width: 40px; height: 4px; cursor: ne-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerSEU" style="height: 40px; width: 4px; cursor: se-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerSEL" style="width: 40px; height: 4px; cursor: se-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerSWL" style="height: 40px; width: 4px; cursor: sw-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerSWU" style="width: 40px; height: 4px; cursor: sw-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoResizerNWL" style="height: 40px; width: 4px; cursor: nw-resize;">
+               </div>
+              </div>
+             </div>
+             <div class="rich-mpnl-mask-div rich-mpnl-mask-div-transparent" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoCursorDiv" style="z-index: -200;">
+              <button class="rich-mpnl-button" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoLastHref">
+              </button>
+             </div>
+             <script type="text/javascript">
+              //<![CDATA[
+new ModalPanel('incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProduto',
+                                {
+                                        width: 600,
+                                        height: 400,
+
+                                        minWidth: 600,
+                                        minHeight: 400,
+
+                                        resizeable: true,
+                                        moveable: false,
+
+                                        left: "auto",
+                                        top: "auto",
+
+                                        zindex: 99999,onresize: '',onmove: '',onshow: function(event){document.getElementById(':formPnlModalPesquisaPrd:txtPrdCoProdutoFiltro').focus();},onhide: '',onbeforeshow: '',onbeforehide: '',
+                                        domElementAttachment: "",                               
+                                        keepVisualState: false,
+                                        showWhenRendered: false,
+                                        selectBehavior: "disable",
+
+                                        autosized: false,
+                                        overlapEmbedObjects: false});
+//]]>
+             </script>
+            </div>
+            <script type="text/javascript">
+            </script>
+           </div>
+           <div id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPreco" style="display: none;">
+            <input autocomplete="off" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoOpenedState" name="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoOpenedState" type="hidden"/>
+            <div class="rich-modalpanel modalPesquisaCrud" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoContainer" style="position: absolute; display: none; z-index: 99999; background-color: inherit;">
+             <div class="rich-mpnl-mask-div-opaque rich-mpnl-mask-div" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoDiv" style="z-index: -1;">
+              <button class="rich-mpnl-button" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoFirstHref">
+              </button>
+             </div>
+             <div class="rich-mpnl-panel">
+              <div class="rich-mp-container" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;">
+               <div class="rich-mpnl-shadow" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoShadowDiv">
+               </div>
+               <div class="rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoContentDiv">
+                <div class="rich-mpnl-text rich-mpnl-controls">
+                 <img class="hidelink" onclick="document.getElementById('incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPreco').component.hide()" src="/eVendas/css/img/imgCloseModal.png"/>
+                </div>
+                <table border="0" cellpadding="0" cellspacing="0" class="rich-mp-content-table" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoContentTable" style="height: 100%; width: 100%;">
+                 <tbody>
+                  <tr style="height: 1%;">
+                   <td class="rich-mpnl-header-cell">
+                    <div class="rich-mpnl-text rich-mpnl-header tblHeader" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoHeader" style="white-space: nowrap;">
+                     Pesquisa - Grupo Preço
+                     <script type="text/javascript">
+                      //<![CDATA[
+                
+                function pesquisaRegistrosProduto(objHtml) {                    
+                    var tblFiltro = jQuery(objHtml).parent().parent().parent();                    
+                    jQuery("tr:eq(2)", tblFiltro).each(function() {                        
+                        jQuery(".btn", this).click();
+                    });
+                }
+            //]]>
+                     </script>
+                    </div>
+                   </td>
+                  </tr>
+                  <tr style="height: 99%">
+                   <td class="rich-mpnl-body" valign="top">
+                    <form action="/eVendas/home.faces" enctype="multipart/form-data" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr" method="post" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr">
+                     <input autocomplete="off" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr" type="hidden" value="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr"/>
+                     <table cellpadding="0" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:panelGridFiltragem">
+                      <tbody>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:pnlModalPesquisaFiltragemGpr">
+                          <table cellpadding="1" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:pnlPsqGrupoPrecoFiltro" style="font-size: 11px">
+                           <tbody>
+                            <tr>
+                             <td>
+                              <label>
+                               Código:
+                              </label>
+                             </td>
+                             <td>
+                              <input autocomplete="off" class="iptPesquisa" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:txtGrpCoGrupoFiltro" maxlength="60" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:txtGrpCoGrupoFiltro" onkeydown="if (jQuery.TeclaEvento(event) == 13) { pesquisaRegistrosProduto(this); }" onkeypress="if (jQuery.TeclaEvento(event) == 13) { return false;}" onkeyup="jQuery.Mascara(this, event, 'texto')" size="50" type="text"/>
+                             </td>
+                             <td>
+                             </td>
+                            </tr>
+                            <tr>
+                             <td>
+                              <label>
+                               Nome:
+                              </label>
+                             </td>
+                             <td>
+                              <input autocomplete="off" class="iptPesquisa" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:txtGrpNoGrupoFiltro" maxlength="120" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:txtGrpNoGrupoFiltro" onkeydown="if (jQuery.TeclaEvento(event) == 13) { pesquisaRegistrosProduto(this); }" onkeypress="if (jQuery.TeclaEvento(event) == 13) { return false;}" onkeyup="jQuery.Mascara(this, event, 'texto')" size="60" type="text"/>
+                             </td>
+                             <td>
+                             </td>
+                            </tr>
+                            <tr>
+                             <td>
+                              <input autocomplete="off" class="btn" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:btnPsqGrupoPreco" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:btnPsqGrupoPreco" onclick="A4J.AJAX.Submit('incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr',event,{'similarityGroupingId':'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:btnPsqGrupoPreco','parameters':{'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:btnPsqGrupoPreco':'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:btnPsqGrupoPreco'} } );return false;" type="button" value="Pesquisar"/>
+                             </td>
+                            </tr>
+                           </tbody>
+                          </table>
+                         </span>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <table cellpadding="2" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:tblIveHdPsqGrupoPreco">
+                          <thead>
+                           <tr>
+                            <th class="tblHeader" width="401px">
+                             Nome
+                            </th>
+                            <th class="tblHeader" width="100px">
+                             Selecionar
+                            </th>
+                           </tr>
+                          </thead>
+                          <tbody id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:tblIveHdPsqGrupoPreco:tbody_element">
+                           <tr>
+                            <td>
+                            </td>
+                           </tr>
+                          </tbody>
+                         </table>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:pnlModalTblConteudoGpr">
+                          <div class="divPesquisa" style="width: 580px;">
+                           <table cellpadding="2" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:tblPsqInfoGrupoPrecoBody">
+                            <tbody id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:tblPsqInfoGrupoPrecoBody:tbody_element">
+                             <tr>
+                              <td>
+                              </td>
+                             </tr>
+                            </tbody>
+                           </table>
+                          </div>
+                         </span>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:pnlModalTblConteudoGpr_footer">
+                         </span>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:pnlModalPaginacaoIncludeGpr">
+                          <div class="errorMessageGlobal" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaGpr:j_id356">
+                          </div>
+                         </span>
+                        </td>
+                       </tr>
+                      </tbody>
+                     </table>
+                     <input autocomplete="off" id="javax.faces.ViewState" name="javax.faces.ViewState" type="hidden" value="j_id2"/>
+                    </form>
+                   </td>
+                  </tr>
+                 </tbody>
+                </table>
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerN" style="width: 40px; height: 4px; cursor: n-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerE" style="height: 40px; width: 4px; cursor: e-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerS" style="width: 40px; height: 4px; cursor: s-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerW" style="height: 40px; width: 4px; cursor: w-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerNWU" style="width: 40px; height: 4px; cursor: nw-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerNEU" style="height: 40px; width: 4px; cursor: ne-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerNEL" style="width: 40px; height: 4px; cursor: ne-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerSEU" style="height: 40px; width: 4px; cursor: se-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerSEL" style="width: 40px; height: 4px; cursor: se-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerSWL" style="height: 40px; width: 4px; cursor: sw-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerSWU" style="width: 40px; height: 4px; cursor: sw-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoResizerNWL" style="height: 40px; width: 4px; cursor: nw-resize;">
+               </div>
+              </div>
+             </div>
+             <div class="rich-mpnl-mask-div rich-mpnl-mask-div-transparent" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoCursorDiv" style="z-index: -200;">
+              <button class="rich-mpnl-button" id="incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoLastHref">
+              </button>
+             </div>
+             <script type="text/javascript">
+              //<![CDATA[
+new ModalPanel('incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPreco',
+                                {
+                                        width: 600,
+                                        height: 400,
+
+                                        minWidth: 600,
+                                        minHeight: 400,
+
+                                        resizeable: true,
+                                        moveable: false,
+
+                                        left: "auto",
+                                        top: "auto",
+
+                                        zindex: 99999,onresize: '',onmove: '',onshow: function(event){document.getElementById(':formPnlModalPesquisaGpr:txtPrdCoProdutoFiltro').focus();},onhide: '',onbeforeshow: '',onbeforehide: '',
+                                        domElementAttachment: "",                               
+                                        keepVisualState: false,
+                                        showWhenRendered: false,
+                                        selectBehavior: "disable",
+
+                                        autosized: false,
+                                        overlapEmbedObjects: false});
+//]]>
+             </script>
+            </div>
+            <script type="text/javascript">
+            </script>
+           </div>
+           <div id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPreco" style="display: none;">
+            <input autocomplete="off" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoOpenedState" name="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoOpenedState" type="hidden"/>
+            <div class="rich-modalpanel modalPesquisaCrud" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoContainer" style="position: absolute; display: none; z-index: 99999; background-color: inherit;">
+             <div class="rich-mpnl-mask-div-opaque rich-mpnl-mask-div" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoDiv" style="z-index: -1;">
+              <button class="rich-mpnl-button" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoFirstHref">
+              </button>
+             </div>
+             <div class="rich-mpnl-panel">
+              <div class="rich-mp-container" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;">
+               <div class="rich-mpnl-shadow" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoShadowDiv">
+               </div>
+               <div class="rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoContentDiv">
+                <div class="rich-mpnl-text rich-mpnl-controls">
+                 <img class="hidelink" onclick="document.getElementById('incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPreco').component.hide()" src="/eVendas/css/img/imgCloseModal.png"/>
+                </div>
+                <table border="0" cellpadding="0" cellspacing="0" class="rich-mp-content-table" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoContentTable" style="height: 100%; width: 100%;">
+                 <tbody>
+                  <tr style="height: 1%;">
+                   <td class="rich-mpnl-header-cell">
+                    <div class="rich-mpnl-text rich-mpnl-header tblHeader" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoHeader" style="white-space: nowrap;">
+                     Produtos do Grupo Preço
+                    </div>
+                   </td>
+                  </tr>
+                  <tr style="height: 99%">
+                   <td class="rich-mpnl-body" valign="top">
+                    <form action="/eVendas/home.faces" enctype="multipart/form-data" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp" method="post" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp">
+                     <input autocomplete="off" name="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp" type="hidden" value="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp"/>
+                     <table cellpadding="0" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:panelGridFiltragem">
+                      <tbody>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:pnlModalPesquisaFiltragemPrdGrp">
+                         </span>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <table cellpadding="2" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:tblIveHdPsqProdutoGrupoPreco">
+                          <thead>
+                           <tr>
+                            <th class="tblHeader" width="551px">
+                             Nome
+                            </th>
+                           </tr>
+                          </thead>
+                          <tbody id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:tblIveHdPsqProdutoGrupoPreco:tbody_element">
+                           <tr>
+                            <td>
+                            </td>
+                           </tr>
+                          </tbody>
+                         </table>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:pnlModalTblConteudoPrdGrp">
+                          <div class="divPesquisa" style="width: 550px; height: 300px;">
+                           <table cellpadding="2" cellspacing="1" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:tblPsqInfoProdutoGrupoPrecoBody">
+                            <tbody id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:tblPsqInfoProdutoGrupoPrecoBody:tbody_element">
+                             <tr>
+                              <td>
+                              </td>
+                             </tr>
+                            </tbody>
+                           </table>
+                          </div>
+                         </span>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:pnlModalTblConteudoPrdGrp_footer">
+                         </span>
+                        </td>
+                       </tr>
+                       <tr>
+                        <td>
+                         <span id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:pnlModalPaginacaoIncludePrdGrp">
+                          <div class="errorMessageGlobal" id="incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrdGrp:j_id388">
+                          </div>
+                         </span>
+                        </td>
+                       </tr>
+                      </tbody>
+                     </table>
+                     <input autocomplete="off" id="javax.faces.ViewState" name="javax.faces.ViewState" type="hidden" value="j_id2"/>
+                    </form>
+                   </td>
+                  </tr>
+                 </tbody>
+                </table>
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerN" style="width: 40px; height: 4px; cursor: n-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerE" style="height: 40px; width: 4px; cursor: e-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerS" style="width: 40px; height: 4px; cursor: s-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerW" style="height: 40px; width: 4px; cursor: w-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerNWU" style="width: 40px; height: 4px; cursor: nw-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerNEU" style="height: 40px; width: 4px; cursor: ne-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerNEL" style="width: 40px; height: 4px; cursor: ne-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerSEU" style="height: 40px; width: 4px; cursor: se-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerSEL" style="width: 40px; height: 4px; cursor: se-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerSWL" style="height: 40px; width: 4px; cursor: sw-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerSWU" style="width: 40px; height: 4px; cursor: sw-resize;">
+               </div>
+               <div class="rich-mpnl-resizer" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoResizerNWL" style="height: 40px; width: 4px; cursor: nw-resize;">
+               </div>
+              </div>
+             </div>
+             <div class="rich-mpnl-mask-div rich-mpnl-mask-div-transparent" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoCursorDiv" style="z-index: -200;">
+              <button class="rich-mpnl-button" id="incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPrecoLastHref">
+              </button>
+             </div>
+             <script type="text/javascript">
+              //<![CDATA[
+new ModalPanel('incCentral:incCentralDiversos:incCentralDiversos:pnlProdutoGrupoPreco',
+                                {
+                                        width: 600,
+                                        height: 400,
+
+                                        minWidth: 600,
+                                        minHeight: 400,
+
+                                        resizeable: true,
+                                        moveable: false,
+
+                                        left: "auto",
+                                        top: "auto",
+
+                                        zindex: 99999,onresize: '',onmove: '',onshow: function(event){document.getElementById(':formPnlModalPesquisaPrdGrp:txtPrdCoProdutoFiltro').focus();},onhide: '',onbeforeshow: '',onbeforehide: '',
+                                        domElementAttachment: "",                               
+                                        keepVisualState: false,
+                                        showWhenRendered: false,
+                                        selectBehavior: "disable",
+
+                                        autosized: false,
+                                        overlapEmbedObjects: false});
+//]]>
+             </script>
+            </div>
+            <script type="text/javascript">
+            </script>
+           </div>
+          </span>
+         </span>
+        </div>
+       </span>
+      </span>
+     </div>
+    </span>
+    <div id="panelEnganacaoFat" style="display: none;">
+     <input autocomplete="off" id="panelEnganacaoFatOpenedState" name="panelEnganacaoFatOpenedState" type="hidden"/>
+     <div class="rich-modalpanel" id="panelEnganacaoFatContainer" style="position: absolute; display: none; z-index: 100; background-color: inherit;">
+      <div class="rich-mpnl-mask-div-opaque rich-mpnl-mask-div" id="panelEnganacaoFatDiv" style="z-index: -1;">
+       <button class="rich-mpnl-button" id="panelEnganacaoFatFirstHref">
+       </button>
+      </div>
+      <div class="rich-mpnl-panel">
+       <div class="rich-mp-container" id="panelEnganacaoFatCDiv" style="position: absolute; left: 0px; top: 0px; z-index: 9;">
+        <div class="rich-mpnl-shadow" id="panelEnganacaoFatShadowDiv">
+        </div>
+        <div class="rich-mpnl-ovf-hd rich-mpnl-trim rich-mpnl-content" id="panelEnganacaoFatContentDiv">
+         <table border="0" cellpadding="0" cellspacing="0" class="rich-mp-content-table" id="panelEnganacaoFatContentTable" style="height: 100%; width: 100%;">
+          <tbody>
+           <tr style="height: 99%">
+            <td class="rich-mpnl-body" valign="top">
+            </td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerN" style="width: 40px; height: 4px; cursor: n-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerE" style="height: 40px; width: 4px; cursor: e-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerS" style="width: 40px; height: 4px; cursor: s-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerW" style="height: 40px; width: 4px; cursor: w-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerNWU" style="width: 40px; height: 4px; cursor: nw-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerNEU" style="height: 40px; width: 4px; cursor: ne-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerNEL" style="width: 40px; height: 4px; cursor: ne-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerSEU" style="height: 40px; width: 4px; cursor: se-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerSEL" style="width: 40px; height: 4px; cursor: se-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerSWL" style="height: 40px; width: 4px; cursor: sw-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerSWU" style="width: 40px; height: 4px; cursor: sw-resize;">
+        </div>
+        <div class="rich-mpnl-resizer" id="panelEnganacaoFatResizerNWL" style="height: 40px; width: 4px; cursor: nw-resize;">
+        </div>
+       </div>
+      </div>
+      <div class="rich-mpnl-mask-div rich-mpnl-mask-div-transparent" id="panelEnganacaoFatCursorDiv" style="z-index: -200;">
+       <button class="rich-mpnl-button" id="panelEnganacaoFatLastHref">
+       </button>
+      </div>
+      <script type="text/javascript">
+       //<![CDATA[
+new ModalPanel('panelEnganacaoFat',
+                                {
+                                        width: -1,
+                                        height: -1,
+
+                                        minWidth: -1,
+                                        minHeight: -1,
+
+                                        resizeable: true,
+                                        moveable: true,
+
+                                        left: "auto",
+                                        top: "auto",
+
+                                        zindex: 100,onresize: '',onmove: '',onshow: '',onhide: '',onbeforeshow: '',onbeforehide: '',
+                                        domElementAttachment: "",                               
+                                        keepVisualState: false,
+                                        showWhenRendered: false,
+                                        selectBehavior: "disable",
+
+                                        autosized: false,
+                                        overlapEmbedObjects: false});
+//]]>
+      </script>
+     </div>
+     <script type="text/javascript">
+     </script>
+    </div>
+   </span>
+  </div>
+  <div class="divRodape" id="divRodape">
+   <div style="display: -moz-inline-box; display: inline; float: left;">
+    <div class="divTextoRodape" id="j_id14">
+     Desenvolvido por
+    </div>
+    <a class="linkPhd" href="http://www.novoslideresphd.com.br" tabindex="0" target="_blank">
+     <img alt="Novos Líderes PHD" height="25" src="css/img/imgLogoPhd.png" style="vertical-align: middle;" title="Novos Líderes PHD" width="161"/>
+    </a>
+   </div>
+   <div style="display: -moz-inline-box; display: inline; float: center;">
+    <a class="divTextoRodape" href="http://www.novoslideresphd.com.br" tabindex="0" target="_blank">
+     www.novoslideresphd.com.br
+    </a>
+   </div>
+   <div style="display: -moz-inline-box; display: inline; float: right;">
+    <a class="linkPhd" href="http://www.novoslideresphd.com.br" tabindex="0" target="_blank">
+     <img alt="Novos Líderes PHD" height="25" src="css/img/imgLogoPhd.png" style="vertical-align: middle;" title="Novos Líderes PHD" width="161"/>
+    </a>
+   </div>
+  </div>
+  <!-- MYFACES JAVASCRIPT -->
+  <script xmlns="http://www.w3.org/1999/xhtml">
+   A4J.AJAX._scriptEvaluated=true;
+  </script>
+  <div class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all ui-helper-hidden-accessible" id="ui-datepicker-div" style="font-size: 11px; display: none;">
+  </div>
+ </body>
+</html>

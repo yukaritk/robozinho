@@ -1,6 +1,8 @@
 import time
 from plyer import notification
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class HelperMethods:
     def __init__(self, driver):
@@ -19,20 +21,23 @@ class HelperMethods:
         while time_out > 0:
             html = self.driver.page_source
             if text in html:
-                return
-            time.sleep(0.5)
-            time_out -= 0.5
+                return True
+            else:
+                time.sleep(0.5)
+                time_out -= 0.5
         raise Exception
 
-    def is_display_on(self, by_type, contem):
-        time_out = 10
-        while time_out > 0:
-            elemento = self.driver.find_element(by_type, contem)
-            if elemento.is_displayed():
-                return
-            time.sleep(0.5)
-            time_out -= 0.5
-        raise Exception
+    def is_display_on(self, by_type, value, timeout=10):
+        print(f"[is_display_on] Esperando exibição de elemento: {value}")
+        try:
+            WebDriverWait(self.driver, timeout).until(
+                EC.visibility_of_element_located((by_type, value))
+            )
+            print(f"[is_display_on] Elemento visível: {value}")
+            return True
+        except Exception as e:
+            print(f"[is_display_on] ERRO ao esperar elemento: {value} — {e}")
+            return False
     
     def item_update(self):
         elemento_itens = self.driver.find_element(By.XPATH, "//span[contains(., 'ITENS:')]")
@@ -61,12 +66,17 @@ class HelperMethods:
             time_out -= 0.5
         raise Exception
     
-    def wait_select_done(self, select):
+    def wait_select_done(self, select, expected_value):
         time_out = 5
         while time_out > 0:
-            selected_option = select.first_selected_option
-            if selected_option.is_selected():
-                return
+            try:
+                selected_option = select.first_selected_option
+                current_value = selected_option.get_attribute("value")
+                if current_value == expected_value:
+                    return
+            except Exception as e:
+                # Em caso de transição de DOM ou recarregamento leve
+                pass
             time.sleep(0.5)
             time_out -= 0.5
         raise Exception

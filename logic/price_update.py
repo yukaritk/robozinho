@@ -39,7 +39,7 @@ class PriceUpdate:
     def novo_nome_csv(self):
         dir_name, file_name = os.path.split(self.caminho)
         base_name, ext = os.path.splitext(file_name)
-        csv_file_name = f"{base_name}_alteracao_preco_parcial.csv"
+        csv_file_name = f"{base_name}_CONTROLE_parcial.csv"
         return os.path.join(dir_name, csv_file_name)
 
     def xml_csv(self):
@@ -79,6 +79,8 @@ class PriceUpdate:
         self.hm.carregando('Manut. Custo Prod.')
         self.hm.is_display_on(By.CSS_SELECTOR, "input[value='Manut. Custo Prod.']")
         self.driver.find_element(By.CSS_SELECTOR, "input[value='Manut. Custo Prod.']").click()
+        self.hm.carregando('Manutenção do Custo do Produto')
+        time.sleep(7)
 
     def click_element(self, elemento):
         timeout = 5
@@ -117,64 +119,176 @@ class PriceUpdate:
             campo.dispatchEvent(new Event('input', { bubbles: true }));
             campo.dispatchEvent(new Event('change', { bubbles: true }));
         """, field_data, data)
+        self.display_mudou()
 
-    def wait_option(self, select_element, timeout=3):
-        select = Select(select_element)
+
+    def display_mudou(self, id_elemento="_viewRoot:status.start", timeout=5):
+        print(f"[display_mudou] Aguardando mudança no elemento: {id_elemento}")
+        WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.ID, id_elemento)))
+        estilo_anterior = self.driver.find_element(By.ID, id_elemento).get_attribute("style") or ""
+        for i in range(timeout):
+            time.sleep(1)
+            estilo_atual = self.driver.find_element(By.ID, id_elemento).get_attribute("style") or ""
+            print(f"[display_mudou] Segundo {i+1}: estilo atual = '{estilo_atual}'")
+            if estilo_atual != estilo_anterior:
+                print("[display_mudou] Mudança detectada.")
+                return True
+        print("[display_mudou] Nenhuma mudança detectada.")
+        return False
+
+    def wait_loja_disponivel(self, select_element, loja, timeout=120):
         elapsed = 0
-        while len(select.options) == 0:
-            if elapsed >= timeout:
-                raise Exception
-            time.sleep(0.5)
-            elapsed += 0.5
-            select = Select(select_element)
-        return select
-    
+        while elapsed < timeout:
+            try:
+                select = Select(select_element)
+                for option in select.options:
+                    match = re.match(r"\[([^\]]+)\]", option.text)
+                    if match:
+                        cod_loja = match.group(1).strip()
+                        if cod_loja == loja:
+                            print(f"[wait_loja_disponivel] Loja {loja} encontrada!")
+                            return
+            except Exception as e:
+                print(f"[wait_loja_disponivel] Erro ao acessar select: {e}")
+
+            time.sleep(1)
+            elapsed += 1
+
+        raise Exception(f"Loja {loja} não carregou dentro do tempo limite.")
+
     def seleciona_loja(self, loja):
+        print(f"[seleciona_loja] Iniciando seleção da loja: {loja}")
         container = "incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlBasePrecoVendaAdd"
-        self.hm.is_display_on(By.ID, container)
         select_container = self.driver.find_element(By.ID, container)
         select_element = select_container.find_element(By.TAG_NAME, "select")
-        select = self.wait_option(select_element)
+        self.wait_loja_disponivel(select_element, loja, 10)
+        select = Select(select_element)
+
+        print("[seleciona_loja] Opções disponíveis:")
         for opt in select.options:
-            text = opt.text.strip()
+            text = opt.text
             value = opt.get_attribute("value")
-            match = re.search(r"\[(\d+)\]", text)
+            print(f"  - texto: '{text}', value: '{value}'")
+
+            match = re.search(r"\[([^\]]+)\]", text)
             if match:
                 cod_loja = match.group(1)
                 if cod_loja == loja:
-                    select.select_by_value(value)
-                    self.hm.wait_select_done(select)
-                    logging.info(f"{text} ALTERADO")
+                    print(f"[seleciona_loja] Match encontrado: {text} (value: {value})")
+                    select.select_by_value(str(value))
+                    self.display_mudou()
+                    logging.info(f"{text}")
+                    print(f"[seleciona_loja] Loja selecionada com sucesso: {text}")
                     return True
+
         logging.info(f"{loja} não encontrada nas opções.")
+        print(f"[seleciona_loja] Loja {loja} não encontrada.")
         self.hm.notificar('Erro', f'{loja} não encontrada.')
         return False
+    
+
+    # def display_mudou(self, id_elemento="_viewRoot:status.start", timeout=5):
+    #     WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located((By.ID, id_elemento)))
+    #     estilo_anterior = self.driver.find_element(By.ID, id_elemento).get_attribute("style") or ""
+    #     for _ in range(timeout):
+    #         time.sleep(1)
+    #         estilo_atual = self.driver.find_element(By.ID, id_elemento).get_attribute("style") or ""
+    #         if estilo_atual != estilo_anterior:
+
+    #             return True
+
+    #     return False
+
+    # def seleciona_loja(self, loja):
+    #     self.display_mudou()
+    #     container = "incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlBasePrecoVendaAdd"
+    #     select_container = self.driver.find_element(By.ID, container)
+    #     select_element = select_container.find_element(By.TAG_NAME, "select")
+    #     select = self.wait_option(select_element)
+
+    #     for opt in select.options:
+    #         text = opt.text
+    #         value = opt.get_attribute("value")
+    #         match = re.search(r"\[([^\]]+)\]", text)
+    #         if match:
+    #             cod_loja = match.group(1)
+    #             if cod_loja == loja:
+    #                 select.select_by_value(value)
+    #                 self.hm.wait_select_done(select, value)
+    #                 self.display_mudou()
+    #                 logging.info(f"{text}")
+    #                 return True
+
+    #     logging.info(f"{loja} não encontrada nas opções.")
+    #     self.hm.notificar('Erro', f'{loja} não encontrada.')
+    #     return False
+    
+
+    # def selecionar_produto(self, type_code, code):
+    #     self.abre_pesquisa_produto()
+    #     retorno = self.search_code(type_code, code)
+    #     if retorno == 'OK':
+    #         self.selecionar_code(code)
+    #         return 'OK'
+    #     else:
+    #         return f'ERRO-{retorno}'
         
+        
+    # def selecionar_grupo(self, type_code, code):
+    #     self.abre_pesquisa_grupo()
+    #     retorno = self.search_code(type_code, code)
+    #     if retorno == 'OK':
+    #         self.selecionar_code(code)
+    #         return 'OK'
+    #     else:
+    #         return f'ERRO-{retorno}'
+        
+    # def abre_pesquisa_grupo(self):
+    #     self.cb.select_btnMenu('Sel. o Grupo Preço', 'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlAreaInclusao')
+    #     self.hm.is_display_on(By.ID, 'incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoCDiv')
+
+    # def abre_pesquisa_produto(self):
+    #     self.cb.select_btnMenu('Selecionar o Produto', 'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlAreaInclusao')
+    #     self.hm.is_display_on(By.ID, 'incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoCDiv')
+
+
     def selecionar_produto(self, type_code, code):
+        print(f"[selecionar_produto] Iniciando seleção para tipo: {type_code}, código: {code}")
         self.abre_pesquisa_produto()
         retorno = self.search_code(type_code, code)
+        print(f"[selecionar_produto] Resultado da busca: {retorno}")
         if retorno == 'OK':
+            print(f"[selecionar_produto] Selecionando código: {code}")
             self.selecionar_code(code)
-            return
+            return 'OK'
         else:
+            print(f"[selecionar_produto] Código não encontrado: {code}")
             return f'ERRO-{retorno}'
-        
-        
+
+
     def selecionar_grupo(self, type_code, code):
+        print(f"[selecionar_grupo] Iniciando seleção para grupo: {code}")
         self.abre_pesquisa_grupo()
         retorno = self.search_code(type_code, code)
+        print(f"[selecionar_grupo] Resultado da busca: {retorno}")
         if retorno == 'OK':
+            print(f"[selecionar_grupo] Selecionando código: {code}")
             self.selecionar_code(code)
-            return
+            return 'OK'
         else:
+            print(f"[selecionar_grupo] Grupo não encontrado: {code}")
             return f'ERRO-{retorno}'
-        
+
+
     def abre_pesquisa_grupo(self):
-        self.cb.select_btnMenu('Sel. o Grupo Preço')
+        print("[abre_pesquisa_grupo] Abrindo modal de grupo de preço...")
+        self.cb.select_btnMenu('Sel. o Grupo Preço', 'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlAreaInclusao')
         self.hm.is_display_on(By.ID, 'incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoCDiv')
 
+
     def abre_pesquisa_produto(self):
-        self.cb.select_btnMenu('Selecionar o Produto')
+        print("[abre_pesquisa_produto] Abrindo modal de produto...")
+        self.cb.select_btnMenu('Selecionar o Produto', 'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:pnlAreaInclusao')
         self.hm.is_display_on(By.ID, 'incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoCDiv')
 
     def btn_pesquisar(self, type_code):
@@ -188,10 +302,11 @@ class PriceUpdate:
         linhas = self.driver.find_elements(By.CSS_SELECTOR, ".tblLinha")
         for i in range(len(linhas)):
             texto = linhas[i].text.strip()
-            if info in texto:
+            if str(info) in texto:
                 proxima_linha = linhas[i + 1]
                 input_element = proxima_linha.find_element(By.TAG_NAME, "input")
                 input_element.click()
+                return
 
     def shift_value(self, id, value):
         field = self.driver.find_element(By.ID, id)
@@ -200,13 +315,14 @@ class PriceUpdate:
         field.send_keys(value)
         field.send_keys(Keys.TAB)
 
+
     def shift_all_price(self, type_code, vl_custo, vl_revenda):
         if type_code.lower() == 'produto':
             id_custo = 'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:txtPvdVlCustoReposicao'
             id_revenda = 'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:txtPvdVlVendaRevenda'     
         else:
             id_custo = 'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:txtGpvVlCustoReposicao'
-            id_revenda = 'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:txtGpvVlVendaRevenda'      
+            id_revenda = 'incCentral:incCentralDiversos:incCentralDiversos:formConteudo:txtGpvVlVendaRevenda'
         self.shift_value(id_custo, vl_custo)
         self.shift_value(id_revenda, vl_revenda)
         self.cb.select_btnMenu('Salvar')
@@ -214,12 +330,17 @@ class PriceUpdate:
 
     def inclusao_preco(self, type_code, vl_custo, vl_revenda):
         self.shift_all_price(type_code, vl_custo, vl_revenda)
-        if self.hm.carregando('okMessage'):
+        if self.hm.carregando('Salvo com sucesso!'):
             return True
         else:
             return False
 
     def search_code(self, type_code, code):
+        linhas = self.driver.find_elements(By.CSS_SELECTOR, ".tblLinha")
+        for i in range(len(linhas)):
+            texto = linhas[i].text.strip()
+            if str(code) in texto:
+                return 'OK'
         if type_code.lower() == 'produto':
             input_id = 'incCentral:incCentralDiversos:incCentralDiversos:formPnlModalPesquisaPrd:txtPrdCoProdutoFiltro'
         else:
@@ -238,12 +359,16 @@ class PriceUpdate:
 
     def update_status(self, type_code):
         first_txt = self.status_time(type_code)
+        if first_txt == 'OK':
+            return
+
         start_time = time.time()
         while (time.time() - start_time) <= 7:
             second_txt = self.status_time(type_code)
             if first_txt != second_txt:
                 return
             time.sleep(1)
+
         raise Exception
 
 
@@ -252,9 +377,13 @@ class PriceUpdate:
             container_id = 'incCentral:incCentralDiversos:incCentralDiversos:pnlPsqProdutoCDiv'
         else:
             container_id = 'incCentral:incCentralDiversos:incCentralDiversos:pnlPsqGrupoPrecoCDiv'
-        container = self.driver.find_element(By.ID, container_id)
-        div_element = container.find_element(By.CLASS_NAME, class_name)
-        return div_element.text.strip()
+        
+        try:
+            container = self.driver.find_element(By.ID, container_id)
+            div_element = container.find_element(By.CLASS_NAME, class_name)
+            return div_element.text.strip()
+        except:
+            return ""
 
     def fechar_modal(self, type_code):
         if type_code.lower() == 'produto':
@@ -311,6 +440,7 @@ class PriceUpdate:
         logging.info(f"Manutencao de Preco")
 
         for idx, row in df.iterrows():
+            self.first_run = True
             data = row['Data inicio']
             status = str(row['Status'])
             codigo = row['Produto/Grupo']
@@ -350,11 +480,9 @@ class PriceUpdate:
                 else:
                     if tipo == 'produto':
                         logging.info(f"Produto: {codigo}")
-                        self.first_run = True
                         mensagem = self.selecionar_produto(tipo, codigo)
                     else:
                         logging.info(f"Grupo: {codigo}")
-                        self.first_run = True
                         mensagem = self.selecionar_grupo(tipo, codigo)
                     if mensagem.startswith("ERRO"):
                         self.update_df_status(row, mensagem)
@@ -363,10 +491,10 @@ class PriceUpdate:
                     else:
                         logging.info(f"PRECO CUSTO: {vl_custo}")
                         logging.info(f"PRECO REVENDA: {vl_revenda}")
-                        bool_conclude = self.inclusao_preco(tipo, codigo, vl_custo, vl_revenda)
+                        bool_conclude = self.inclusao_preco(tipo, vl_custo, vl_revenda)
                         if bool_conclude is False:
                             logging.info(f"ERRO NA INCLUSAO DE PRECO")
-                            self.update_df_status(row, 'CHECK CODE')
+                            self.update_df_status(row, 'ERRO CHECK CODE')
                             continue
                         else:
                             if analisadas.split("-")[-1]:

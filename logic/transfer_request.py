@@ -89,7 +89,7 @@ class TransferRequest:
         select_field = self.driver.find_element(By.ID, "incCentral:formConteudo:selPadraoLancamento")
         select = Select(select_field)
         select.select_by_visible_text(self.type)
-        self.hm.wait_select_done(select)
+        self.hm.wait_select_done(select, self.type)
         iniciar = self.driver.find_element(By.ID, 'incCentral:formConteudo:btnIniciar')
         iniciar.click()
 
@@ -143,7 +143,7 @@ class TransferRequest:
         select_element = self.driver.find_element(By.ID, "incCentral:formConteudo:selCondicaoPagto")
         select = Select(select_element)
         select.select_by_value(value)
-        self.hm.wait_select_done(select)
+        self.hm.wait_select_done(select, value)
 
 
     def finalizar_processo(self):
